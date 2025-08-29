@@ -54,6 +54,40 @@ internal JS -->
                     <script> tag 
 
 ----------------------------------------------------------------------------------------
+Task 1: 
+		Take name , gender , age from user 
+		if gender is male and age is greater than 17 then print eligible for vote 
+		if gender is female and age is greater than 21 then print eligible for vote 
+	        otherwise print not eligible for voting 
+
+----------------------------------------------------------------------------------------
+
+Task 2:
+		Read marks of three subjects from user , maths , sci and eng.
+		calculate percentage 
+		print Pass if percentage is greater than 85
+		print pass if maths + eng  is greater than 180
+		print pass if maths + sci is greater than 190 
+		otherwise print try again 
+
+----------------------------------------------------------------------------------------
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
