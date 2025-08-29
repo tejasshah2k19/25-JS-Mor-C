@@ -1,0 +1,59 @@
+HTML : Webpage : WebSite 
+
+
+            HTML 
+JS                          CSS 
+Scripting Lang.             Design 
+Logic 
+
+
+
+
+Java Script --> 
+                1) PL 
+                2) is not JAVA 
+                3) Scripting Lang 
+
+    
+    Static -> Content -> 
+    Dynamic --> JS 
+
+JS Framework --> NODE JS  : Backend 
+REACT JS => Frontend 
+
+----------------------------------------------------------------------------------------
+
+
+C -> code -> SYS -> compiler -> 
+JS -> Script code -> browser ->  JS Engine 
+
+
+Microsoft  IE               ---> Chakra 
+Mozzila    FireFox          ---> Spider Monkey 
+Google     Chrome           ---> V8 
+
+
+
+----------------------------------------------------------------------------------------
+
+HTML -> Dynamic -> Interactive --> JS 
+
+
+types of JS :- 
+
+        1) internal js  : inside the html file  : same html file 
+        2) external js  : outside the html file : new file 
+
+
+JS -> Case Sensitive -> 
+
+----------------------------------------------------------------------------------------
+internal JS --> 
+            inside the html file --> 
+
+                    <script> tag 
+
+----------------------------------------------------------------------------------------
+
+
+
