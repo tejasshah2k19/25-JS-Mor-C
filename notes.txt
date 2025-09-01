@@ -74,12 +74,34 @@ Task 2:
 
 
 
-  
+read two numbers from user 
+user will input  (+ - * / )  
+
+based on the symbol perform the operation 
++ => addition 
+- => subtraction 
+* => multiplication 
+
+------------------------------------------------------------------------------------------
 
 
+take two numbers from user , on click of button perform addition 
+
+------------------------------------------------------------------------------------------
+
+create Calculator 
+                no1: 
+                no2: 
+                        select 
+                          add
+                          sub
+                          mul
+                          div 
+
+                [submit]
 
 
-
+------------------------------------------------------------------------------------------
 
 
 
