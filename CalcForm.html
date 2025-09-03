@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        function calc(){
+            n1 = parseInt(document.calcm.n1.value);
+            n2 = parseInt(document.calcm.n2.value); 
+
+            choice = document.calcm.choice.value; 
+
+            if(choice == "add"){
+                document.write(n1+n2);
+            }else if(choice == "sub"){
+                document.write(n1-n2);
+            }else if(choice =="mul"){
+                document.writeln(n1*n2);
+            }else if(choice == "div"){
+                document.write(n1/n2);
+            }else {
+                document.write("Invalid Choice");
+            }
+
+        }
+
+    </script>
+
+</head>
+<body>
+    <form name="calcm">
+        No.1: <input type="text" name="n1"/><br><Br> 
+        No.2:<input type="text" name="n2"/><br><Br> 
+
+       Choice: <select name="choice">
+            <option value="add">Addition</option>
+            <option value="sub">Subtraction</option>
+            <option value="mul">Multiplication</option>
+            <option value="div">Division</option>
+        </select>
+        <br><Br>
+        <input type="button" value="Submit" onclick="calc()" />     
+    </form>
+</body>
+</html>

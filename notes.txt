@@ -103,6 +103,39 @@ create Calculator
 
 ------------------------------------------------------------------------------------------
 
+ Num 1:
+ Num 2:
+ Num 3: 
+                [submit]
+
+        greatest number from three 
+
+
+------------------------------------------------------------------------------------------
+
+Read Marks of three subjects -> Maths Sci Eng 
+Submit -> percentage -> 
+35< -> Red Color Fail   [ Red ]
+35-50 -> Pass With B Grade [ Yellow ]
+51-70 -> Pass with A Grade [ Orange ]
+71-90 -> Pass with A- Grade [ blue ]
+91+   -> Pass with A+ Grade [ Green ]
+
+------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
