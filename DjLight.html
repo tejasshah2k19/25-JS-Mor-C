@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+ 
+        function bgYellow(){
+            document.bgColor = "yellow";
+            setTimeout(function(){
+                bgRed();
+            },1000);
+            // bgRed();
+        }
+
+        function bgRed(){
+            document.bgColor="red";
+            // bgGree();
+            setTimeout(function(){
+                bgGree();
+            },1000);
+        }
+
+        function bgGree(){
+            document.bgColor ="green";
+            setTimeout(function(){
+                bgBlue();
+            },1000);
+        }
+
+        function bgBlue(){
+            document.bgColor="blue";
+            setTimeout(function(){
+                bgOrange();
+            },1000);
+        }
+
+        function bgOrange(){
+            document.bgColor="orange";
+            setTimeout(function(){
+                bgYellow();
+            },1000);
+        }
+        
+    </script>
+</head>
+<body onload="bgYellow()">
+    
+</body>
+</html>

@@ -123,9 +123,46 @@ Submit -> percentage ->
 
 ------------------------------------------------------------------------------------------
 
+a = 10; 
+
+var let const 
 
 
+var a; 
+var b = 10; 
+b=  100; value of b is not 100  
 
+let x;
+let y = 10; 
+y = 20 ;  value of y is not 20 
+
+constant variable -> fixed value 
+const int x  = 10; 
+x = 11; ==> error 
+
+
+const age = 18; 
+age = 19; => error 
+
+------------------------------------------------------------------------------------------
+
+JS
+comments ==> 
+                singleline      
+                                //  
+                multiline 
+                                /*   */ 
+
+
+HTML 
+ comment => 
+                        <!-- 
+                                        --> 
+------------------------------------------------------------------------------------------
+js => page -> background color => yellow 
+document.bgColor ="yellow" 
+
+------------------------------------------------------------------------------------------
 
 
 
