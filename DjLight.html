@@ -6,24 +6,20 @@
     <title>Document</title>
 
     <script>
- 
+        const x = 1000;
         function bgYellow(){
             document.bgColor = "yellow";
-            setTimeout(function(){
-                bgRed();
-            },1000);
+            setTimeout(bgRed,x);
             // bgRed();
         }
 
         function bgRed(){
             document.bgColor="red";
             // bgGree();
-            setTimeout(function(){
-                bgGree();
-            },1000);
+            setTimeout(bgGreen,x);
         }
 
-        function bgGree(){
+        function bgGreen(){
             document.bgColor ="green";
             setTimeout(function(){
                 bgBlue();
