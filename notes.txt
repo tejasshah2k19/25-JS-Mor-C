@@ -170,6 +170,68 @@ bYear -> 2005 -> age -> 18+ -> Background Green -> eligible for Voting
 ------------------------------------------------------------------------------------------
 
 
+ 
+//variable -> identifie -> data name ->
+a = 10
+
+a = 15 
+
+
+x -> single value 
+
+x[5] => 5 allocation => 5 address => 5 * 4 byte => 20 byte   
+
+x[0] => 10
+x[1] => 15
+x[2] => 30
+
+ 
+
+int a[5] ; // a ->  5 -> size 5 
+
+
+a[0]
+a[1]
+a[2]
+a[3]
+a[4]
+-----------------------------------------------------------------------------------------------------
+
+getElementById() 
+
+
+
+
+-----------------------------------------------------------------------------------------------------
+
+no name => 
+getElementById()
+
+Signup Form ->  
+
+        firstName : text 
+        lastName  :
+        email :
+        password 
+        Gender : radio button
+        Address : text area 
+        city :  drop down 
+        Hobby : check box 
+
+        [submit]
+
+
+onClick => submit -> read all form input -> and print below form => 
+
+-----------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
 
 
 

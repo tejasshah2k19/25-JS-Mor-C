@@ -14,16 +14,23 @@
             choice = document.calcm.choice.value; 
 
             if(choice == "add"){
-                document.write(n1+n2);
+                // document.write(n1+n2);
+                ans  = n1 + n2; 
             }else if(choice == "sub"){
-                document.write(n1-n2);
+                // document.write(n1-n2);
+                ans = n1 - n2; 
             }else if(choice =="mul"){
-                document.writeln(n1*n2);
+                // document.writeln(n1*n2);
+                ans = n1 * n2;
             }else if(choice == "div"){
-                document.write(n1/n2);
+                // document.write(n1/n2);
+                ans = n1 / n2;
             }else {
                 document.write("Invalid Choice");
+                ans = "Invalid Choice";
             }
+
+            document.getElementById("ans").innerText =ans;
 
         }
 
@@ -43,6 +50,11 @@
         </select>
         <br><Br>
         <input type="button" value="Submit" onclick="calc()" />     
+   
     </form>
+    <br><br> 
+    <div id="ans"></div>
+
+    
 </body>
 </html>
