@@ -226,11 +226,39 @@ onClick => submit -> read all form input -> and print below form =>
 -----------------------------------------------------------------------------------------------------
 
 
+repeat -> ?
+        loop 
+
+        type?
+        2: Entry control , Exit control
+        3: for, while , do..while 
+
+        for(start;condition;inc,dec){
+                
+        }
+
+        print your name 10 times !
 
 
+        for(let i=1;i<=10;i++){
+                document.write("Royal<br>");
+        }
 
 
+-----------------------------------------------------------------------------------------------------
 
+multiplication table -> 
+
+10 ->
+        10 * 1 = 10
+        --
+        10 * 10 = 100 
+
+for -> 1..10 time 
+
+num  num*i
+
+-----------------------------------------------------------------------------------------------------
 
 
 
