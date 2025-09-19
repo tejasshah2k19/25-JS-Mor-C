@@ -262,6 +262,41 @@ num  num*i
 
 
 
+events in js -> 
+
+                onClick
+                ondblclick 
+
+                onmouseover
+                onmouseout 
+
+                onkeydown 
+                
+
+
+        1) on button click -> we will chnage background color 
+        2) firstName [submit] -> 
+                                        print firstname on same page with font size 25px 
+                                        print firstname is required message if input is blank
+
+
+
+-----------------------------------------------------------------------------------------------------
+
+
+to change bg color =>
+                        document.body.style.backgroundColor = "#1234" ;
+
+
+
+
+
+
+
+
+
+
+
 
 
 

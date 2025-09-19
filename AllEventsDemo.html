@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function funMouseOver(){
+            document.getElementById("data").style.fontSize = "100px"; 
+        }
+
+        function funMouseOut(){
+            document.getElementById("data").style.fontSize = "20px"; 
+            
+        }
+
+        function chngBG(){
+            document.body.style.backgroundColor = "#"+parseInt(Math.random()*1000);
+        }
+    </script>
+</head>
+<body>
+    
+
+    <div id="data" style="font-size: 20px;"   onmouseover="funMouseOver()" onmouseout="funMouseOut()" >
+        Royal Education
+    </div>
+    <br><br>
+
+
+    <input type="button" onclick="chngBG()" value="Change BG Color"/>
+ 
+
+
+</body>
+</html>
