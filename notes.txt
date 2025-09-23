@@ -291,10 +291,24 @@ to change bg color =>
 
 
 
+firstName
+age 
+gender 
 
 
+eligible 
+gender  => male 
+age  18+ 
 
 
+eligible 
+gender => female 
+age 19+ 
+
+
+not eligible 
+
+input validate -> 
 
 
 
