@@ -1,45 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        function checkEligiblity(){
-           
-           //input 
-            let firstName =  document.getElementById("firstName").value;
-           let age = document.getElementById("age").value; 
-           let gender = document.getElementsByName("gender");
+        function checkEligiblity() {
 
-           //process 
+            //input 
+            let firstName = document.getElementById("firstName").value;
+            let age = document.getElementById("age").value;
+            let gender = document.getElementsByName("gender");
+            let isError = false;
+            //process 
             //validation 
-            if(firstName == "" ){
-                 document.getElementById("firstNameMsg").innerHTML = "Please Enter FirstName";
+            if (firstName == "") {
+                document.getElementById("firstNameMsg").innerHTML = "Please Enter FirstName";
+                isError = true;
+            } else {
+                document.getElementById("firstNameMsg").innerHTML = "";
             }
 
-            if(age == ""){
+            if (age == "") {
+                isError = true;
                 document.getElementById("ageMsg").innerHTML = "Please Enter Age";
+            } else {
+                document.getElementById("ageMsg").innerHTML = "";
             }
 
-           //output 
+            if (!gender[0].checked && !gender[1].checked) {
+                isError = true;
+                document.getElementById("genderMsg").innerHTML = "Please Select Gender";
+            } else {
+                document.getElementById("genderMsg").innerHTML = "";
+            }
+
+            //output 
+            //convert age string -> age int
+
+            if (isError == false) {
+                age = parseInt(age);
+
+                if (gender[0].checked && age >= 18) {
+                    document.getElementById("result").innerHTML = "Your Are Eligible for Voting";
+                } else if (gender[1].checked && age >= 19) {
+                    document.getElementById("result").innerHTML = "Your Are Eligible for Voting";
+                } else {
+                    document.getElementById("result").innerHTML = "Your Are Not Eligible for Voting";
+
+                }
+            }
 
         }
     </script>
 </head>
+
 <body>
 
-    FirstName :  <input type="text" id="firstName" />
-            <span id="firstNameMsg" style="color: red;"></span>
-    <br><br> 
-    Age :   <input type="number" id="age"/>
-            <span id="ageMsg" style="color: red;"></span>
-    <br><br> 
-    
-    Gender : Male <input type="radio"  name="gender" value="male" required /> 
-            Female <input  type="radio" name="gender" value="female" /><br><br> 
-            
-            <input type="button" value="Submit"  onclick="checkEligiblity()"/>
+    FirstName : <input type="text" id="firstName" />
+    <span id="firstNameMsg" style="color: red;"></span>
+    <br><br>
+    Age : <input type="number" id="age" />
+    <span id="ageMsg" style="color: red;"></span>
+    <br><br>
+
+    Gender : Male <input type="radio" name="gender" value="male" required />
+    Female <input type="radio" name="gender" value="female" />
+    <span id="genderMsg" style="color: red;"></span>
+    <br><br>
+
+    <input type="button" value="Submit" onclick="checkEligiblity()" />
+    <br><br>
+    <div id="result"></div>
 
 </body>
+
 </html>

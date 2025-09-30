@@ -309,9 +309,50 @@ age 19+
 not eligible 
 
 input validate -> 
+------------------------------------------------------------------------
+
+js -> variable ->
 
 
+let a = 10; 
+var a = 10; 
+const a = 10; //constant 
 
+
+10 numbers store -> variable ? 
+
+array -> collection of items / data 
+      -> within a single data name 
+
+
+1 variable -> hold 10 values 
+
+
+let a = 10; 
+a = 20;
+
+//js array 
+let a = [];
+
+
+let a = [10,20,30,40,50]; 
+
+
+print ->a  => 10 20 30 40 50 
+
+if you want to access single item from an array , you can access using index. 
+
+array -> index start with 0 , ends with SIZE-1 
+
+
+print => a[0] => 10 
+-------------------------------------------------------------------------
+
+1) print sum of all the items from an array size 7. 
+2) print max number from above array. 
+
+
+-------------------------------------------------------------------------
 
 
 
