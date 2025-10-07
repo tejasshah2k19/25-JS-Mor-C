@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        var arr = []
+
+        function fnArray() {
+
+            //validation 
+            if (document.getElementById("num").value == "") {
+                document.getElementById("numError").innerHTML = "Please Enter Number";
+            } else {
+                //logic
+                document.getElementById("numError").innerHTML = "";
+                let num = parseInt(document.getElementById("num").value);
+                arr.push(num);
+                console.log(arr);
+                document.getElementById("num").value = "";
+            }
+        }
+
+        // function fnSort(){
+        //     arr.sort(function(x,y){return x-y;});
+
+
+        //     document.getElementById("printArray").innerHTML = arr;
+        // }
+
+        function fnSort() {
+
+            arr.sort();//ASC order Sort    
+            fnPrintArray();
+        }
+
+        function fnReverse(){
+            arr.reverse();
+            fnPrintArray();
+        }
+
+
+        function fnPrintArray() {
+
+            document.getElementById("printArray").innerHTML = arr;
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+    Num : <input type="text" id="num" />
+    <span id="numError" style="color: red;"></span>
+    <br><BR>
+    <input type="button" value="Submit" onclick="fnArray()" />
+
+
+    <input type="button" value="Print" onclick="fnPrintArray()" />
+
+    <input type="button" value="SORT" onclick="fnSort()" />
+
+    
+    <input type="button" value="Reverse" onclick="fnReverse()" />
+
+    <br><br>
+
+
+    <div id="printArray"></div>
+
+
+</body>
+
+</html>

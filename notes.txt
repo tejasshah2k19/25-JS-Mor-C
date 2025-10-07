@@ -402,6 +402,33 @@ lastIndexOf() -> return an index of given element from right side
 
 
 
+sort()
+reverse()
+sort(withArgsCustomSort)
+------------------------------
+
+toSorted()
+toReversed()
+
+--------------------------------------------------------
+
+how many types js ? 
+2 
+internal js { HTML }
+external js { HTML , JS }
+
+we will not run .js file directly 
+
+
+how to create external js? 
+create a file with extension .js 
+
+how to import / link external js to an HTML file ? 
+using script tag , src attribute 
+
+
+
+
 
 
 
