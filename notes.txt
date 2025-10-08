@@ -426,9 +426,22 @@ create a file with extension .js
 how to import / link external js to an HTML file ? 
 using script tag , src attribute 
 
+--------------------------------------------------------
+HTML -> attribute ->form -> submit -> 
 
+<form action="saveuser" method=">
+ 
+ F 
+ L 
+ E 
 
+ <submit>
 
+</form>
+
+url -> 
+--------------------------------------------------------
+<meta > 
 
 
 
