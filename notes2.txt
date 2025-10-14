@@ -1,0 +1,62 @@
+Web development ->
+web site -->    collection of web pages -> 
+
+
+web page ---> HTML  { static }
+
+
+HTML : web page  
+CSS  : design , UI 
+JS   : interactive , dynamic
+
+----------------------------------------------------------
+
+java script will not run stand alone. 
+
+
+
+type ->
+        1)  internal js  [ HTML , no seprarate file , code will be in html file ]
+        2)  external js  [ HTML , .js : seprarate file]
+
+
+
+---------------------------------------------------------------
+
+internal js ->  
+
+how ?   <script></script>  
+where ? any where in the entire html page { head section , bottom of the body }
+
+
+
+---------------------------------------------------------------
+
+
+let 
+var 
+const 
+
+
+normal variable 
+        let 
+        var 
+
+constant variable 
+        const  : fix value , can not modify value 
+
+
+---------------------------------------------------------------
+
+conditional statement -> 
+
+if 
+if...else 
+else if lader 
+nested if 
+
+1)take number and check it is divisible by 3 or 10 
+2)find out max from two numbers 
+
+
+-----------------------------------------------------------------
