@@ -28,6 +28,15 @@ internal js ->
 how ?   <script></script>  
 where ? any where in the entire html page { head section , bottom of the body }
 
+------------------------------------------------------------------
+
+print ->
+        browser 
+                document.write("hi");
+
+        console 
+                console.log("bye");
+
 
 
 ---------------------------------------------------------------
@@ -60,3 +69,108 @@ nested if
 
 
 -----------------------------------------------------------------
+
+loop -> 
+        for 
+        while 
+        do..while 
+
+
+1) print 1 to 10 numbers 
+
+        for(i=1; i<=10; i++ ){
+              console.log(i);          
+        }
+
+
+
+2) print all the numbers which can divide by 3 or 5 , range 1-30
+        
+        for(let i=1; i<= 30 ; i++ ){
+                if( i % 3 == 0  || i % 5 == 0 ){
+                        console.log(i);
+                }
+        }
+
+3)  num = 5 
+    print multiplication table of 5 
+    5 * 1 = 5 
+    ........
+    5 * 10 = 50
+ 
+
+    let num  = 5; 
+    for(i=1; i<=10 ; i++ ){
+        console.log(num+" * "+i+" = "+(num*i));
+    }     
+        
+ 
+4) H.W 
+        let num = 487 => 19
+        let num = 18  => 9
+        let num = 574 => 16
+
+
+-----------------------------------------------------------------
+
+
+multiple value store => 
+
+array -> collection of multiple data items 
+
+let a = [] ;//  [ ]
+
+let arr = [11,22,33,44]; 
+
+JS -> no size limit 
+   -> no type restrictions 
+
+
+
+let arr = [11,22,33,44]; 
+
+//how to add element in existing array ?
+push() 
+
+arr.push(550); // push() will add item/data/element in the array at the end 
+
+console.log(arr); // 11 22 33 44 550 
+
+//how to remove element from array? 
+pop() 
+
+arr.pop(); //pop() will remove element from the end of the array 
+
+console.log(arr); // 11 22 33 44 
+
+
+//how to access single data item from array ? 
+using index , index start with 0 
+
+//first element 
+console.log( arr[0] ); 
+//last element 
+console.log( arr[1] );
+
+//how to count total number of items present in array ?
+length 
+console.log(arr.lenght);
+
+
+
+1) find out sum of all elements in array 
+2) find out min and max num from array 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
