@@ -164,13 +164,75 @@ console.log(arr.lenght);
 
 
 
+------------------------------------------------------------
+
+forEach 
+
+
+read only task 
+array individual item / element / data 
+
+
+let arr = [11,22,33,44,55]; 
+
+
+for(i=0;i<arr.length;i++){
+        console.log(arr[i]);
+}
+
+
+arr.forEach( tmp => console.log(tmp)  );
+
+
+1) print only odd numbers from array : forEach 
+            arr.forEach( tmp  => console.log(tmp)  );
+
+
+            console.log("odd => ");
+
+            arr.forEach(tmp => {
+                             if(tmp % 2 != 0 ) 
+                                console.log(tmp)
+                            } );
+
+
+        function printOdd(tmp){
+            if(tmp%2 != 0)
+                    console.log(tmp);
+        }
+
+
+        console.log("add again => ");
+        arr.forEach(printOdd);
+
+2) print sum of all elements from array : forEach
+
+        let arr = [11,22,33,44,55]
+        let sum = 0; 
+
+        arr.forEach(tmp => sum = sum + tmp ); 
+        console.log("sum => " +sum); 
 
 
 
 
+3) count total odd and even numbers from array : forEach 
+ 
+
+        let oddCounter = 0;
+        let evenCounter = 0; 
 
 
+        let arr = [11,22,33,44,55]
 
+        arr.forEach( tmp => {
+                if( tmp % 2 == 0 ){
+                        evenCounter++;
+                }else{
+                        oddCounter++;
+                }
+        });
 
-
-
+        console.log(" Total odd => "+oddCounter);
+        console.log(" Total Even => "+evenCounter); 
+        
