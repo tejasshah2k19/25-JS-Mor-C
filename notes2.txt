@@ -236,3 +236,12 @@ arr.forEach( tmp => console.log(tmp)  );
         console.log(" Total odd => "+oddCounter);
         console.log(" Total Even => "+evenCounter); 
         
+
+-------------------------------------------------------------------
+
+Event -> 
+
+        button click 
+        button double click 
+
+        
