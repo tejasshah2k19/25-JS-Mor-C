@@ -1,0 +1,141 @@
+ 
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess the Number Game</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: radial-gradient(circle at center, #111 0%, #000 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 50px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+      width: 90%;
+      max-width: 400px;
+      animation: fadeIn 1s ease-in;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: cyan;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px cyan;
+    }
+
+    input[type="text"] {
+      width: 80%;
+      padding: 12px;
+      border: none;
+      outline: none;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      text-align: center;
+      margin-bottom: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+
+    input[type="button"] {
+      background: cyan;
+      color: #000;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 10px cyan;
+    }
+
+    input[type="button"]:hover {
+      background: #00ffffa9;
+      box-shadow: 0 0 20px cyan;
+    }
+
+    .lifeline {
+      margin-top: 20px;
+      font-size: 1.1rem;
+      color: #ffcc00;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+
+  <script>
+    var lifeLine = 5;
+    var winningNum = parseInt(Math.random() * 100);
+
+    function gamePlay() {
+      let userGuess = parseInt(document.getElementById("n1").value);
+
+      if (isNaN(userGuess)) {
+        alert("Please enter a valid number!");
+        return;
+      }
+
+      if (winningNum == userGuess) {
+        alert("🎉 Congratulations! You guessed it right!");
+        location.href = "GameWin.html"
+    } else {
+        lifeLine--;
+
+        if (lifeLine == 0) {
+          location.href = "GameOver.html";
+          return;
+        }
+
+        if (userGuess > winningNum) {
+          alert("❌ Too High! Try a smaller number.\nRemaining Lifeline: " + lifeLine);
+        } else {
+          alert("❌ Too Low! Try a bigger number.\nRemaining Lifeline: " + lifeLine);
+        }
+
+        document.getElementById("lifeline").innerText = "❤️ Lifeline Left: " + lifeLine;
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>🎯 Guess the Number</h1>
+    <p>Enter a number between <strong>0</strong> and <strong>100</strong></p>
+    <input type="text" id="n1" placeholder="Your Guess" /><br>
+    <input type="button" value="Check" onclick="gamePlay()" />
+    <div class="lifeline" id="lifeline">❤️ Lifeline Left: 5</div>
+  </div>
+</body>
+
+</html>

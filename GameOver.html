@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Game Over</title>
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#ff3b30;
+      --muted:rgba(255,255,255,0.65);
+      --glass: rgba(255,255,255,0.04);
+      --glass-border: rgba(255,255,255,0.06);
+      --success:#22c55e;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(1200px 600px at 10% 20%, rgba(255,59,48,0.06), transparent),
+                  radial-gradient(1000px 500px at 90% 80%, rgba(34,197,94,0.03), transparent),
+                  var(--bg);
+      color:#e6eef8;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px;
+    }
+
+    .container{
+      width:100%;
+      max-width:980px;
+      backdrop-filter: blur(6px);
+      border-radius:16px;
+      padding:28px;
+      box-shadow: 0 12px 40px rgba(2,6,23,0.6);
+      border:1px solid rgba(255,255,255,0.03);
+      position:relative;
+      overflow:hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+    }
+
+    /* Decorative - subtle glitch lines */
+    .container::before,
+    .container::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image: linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events:none;
+      mix-blend-mode:overlay;
+      opacity:0.7;
+    }
+
+    .left{
+      display:flex;
+      gap:20px;
+      align-items:center;
+    }
+
+    .main{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:28px;
+    }
+
+    .title{
+      font-size:64px;
+      line-height:1;
+      font-weight:800;
+      letter-spacing:-1px;
+      margin:0 0 10px 0;
+      color:var(--accent);
+      text-shadow: 0 6px 30px rgba(255,59,48,0.12), 0 1px 0 rgba(255,255,255,0.02);
+      position:relative;
+    }
+
+    /* small glitch shake */
+    .title .glitch{
+      position:relative;
+      display:inline-block;
+      animation:shake 0.9s infinite linear;
+    }
+    @keyframes shake{
+      0%{transform:translateX(0)}
+      30%{transform:translateX(-2px)}
+      60%{transform:translateX(2px)}
+      100%{transform:translateX(0)}
+    }
+
+    .subtitle{
+      color:var(--muted);
+      margin:0 0 18px 0;
+      font-size:16px;
+    }
+
+    .score-large{
+      font-size:48px;
+      font-weight:700;
+      margin:8px 0 0 0;
+      color:#fff;
+    }
+
+    .actions{
+      display:flex;
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .btn{
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border:1px solid var(--glass-border);
+      padding:10px 16px;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:600;
+      color:inherit;
+      min-width:120px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      transition:transform .12s ease, box-shadow .12s ease, background .12s;
+    }
+
+    .btn:active{transform:translateY(1px)}
+    .btn.primary{
+      background: linear-gradient(90deg,#ff6b59,#ff3b30);
+      color:white;
+      box-shadow: 0 8px 28px rgba(255,59,48,0.18);
+      border:none;
+    }
+    .btn.ghost{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.06);
+    }
+
+    /* Right panel */
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px;
+      padding:18px;
+      border:1px solid rgba(255,255,255,0.03);
+      height:100%;
+    }
+
+    .panel h3{margin:0 0 12px 0}
+    .stat{
+      display:flex;
+      justify-content:space-between;
+      padding:10px 12px;
+      border-radius:10px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+      margin-bottom:10px;
+      align-items:center;
+    }
+    .stat .label{color:var(--muted);font-size:13px}
+    .stat .value{font-weight:700;font-size:16px}
+
+    .small-muted{font-size:13px;color:var(--muted)}
+
+    /* confetti animation */
+    .confetti-piece{
+      position:absolute;
+      width:10px;height:16px;
+      opacity:0.95;
+      transform-origin:center;
+      animation:fall 2500ms linear infinite;
+      will-change:transform,opacity;
+      border-radius:2px;
+    }
+    @keyframes fall{
+      0%{transform:translateY(-40vh) rotate(0deg); opacity:1}
+      100%{transform:translateY(120vh) rotate(540deg); opacity:0}
+    }
+
+    /* responsive */
+    @media (max-width:880px){
+      .main{grid-template-columns: 1fr}
+      .title{font-size:48px}
+      .panel{order:2}
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container" role="region" aria-label="Game over screen">
+    <div class="main">
+      <section>
+        <h1 class="title"><span class="glitch">GAME OVER</span></h1>
+        <p class="subtitle">Nice try — every run teaches you something. Here's how you did this time.</p>
+
+        <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+          <div style="padding:18px;border-radius:12px;background:var(--card);border:1px solid var(--glass-border);min-width:220px">
+            <div class="small-muted">Final Score</div>
+            <div class="score-large" id="finalScore">0</div>
+            <div class="small-muted" style="margin-top:8px">Enemies defeated: <strong id="enemies">0</strong></div>
+          </div>
+
+          <div style="flex:1;min-width:220px">
+            <div style="background:var(--glass);padding:14px;border-radius:12px;border:1px solid var(--glass-border)">
+              <div class="small-muted">Best streak</div>
+              <div style="font-weight:800;font-size:22px;margin-top:6px" id="streak">0</div>
+              <div class="small-muted" style="margin-top:10px">Tips: <span id="tip">Try focusing fire on big enemies to stop their spawn.</span></div>
+            </div>
+
+            <div class="actions">
+              <button class="btn primary" id="playAgainBtn">Play Again</button>
+              <button class="btn ghost" id="shareBtn">Copy Score</button>
+              <button class="btn ghost" id="menuBtn">Main Menu</button>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <aside class="panel" aria-hidden="false">
+        <h3>Match Summary</h3>
+        <div class="stat"><div class="label">Time Played</div><div class="value" id="timePlayed">0:00</div></div>
+        <div class="stat"><div class="label">Waves Survived</div><div class="value" id="waves">0</div></div>
+        <div class="stat"><div class="label">Accuracy</div><div class="value" id="accuracy">0%</div></div>
+
+        <div style="margin-top:14px">
+          <div class="small-muted">You can also save this result to your local leaderboard (example)</div>
+          <div style="display:flex;gap:8px;margin-top:12px">
+            <button class="btn" id="saveBtn">Save Result</button>
+            <button class="btn" id="shareSocial">Share</button>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- confetti pieces generated by JS -->
+  </div>
+
+  <script>
+    // Example usage: when your game ends, call showGameOver({score:123, enemies:12, time:'3:12', waves:5, accuracy:74, streak:3})
+    function showGameOver(data){
+      document.getElementById('finalScore').textContent = data.score || 0;
+      document.getElementById('enemies').textContent = data.enemies || 0;
+      document.getElementById('timePlayed').textContent = data.time || '0:00';
+      document.getElementById('waves').textContent = data.waves || 0;
+      document.getElementById('accuracy').textContent = (data.accuracy||0) + '%';
+      document.getElementById('streak').textContent = data.streak || 0;
+      // optional tip
+      if(data.tip) document.getElementById('tip').textContent = data.tip;
+      // spawn confetti
+      spawnConfetti(Math.min(30, 5 + Math.floor((data.score||0)/10)));
+    }
+
+    // simple confetti spawner (creates DOM elements)
+    function spawnConfetti(n){
+      const colors = ['#ff3b30','#ffb020','#22c55e','#3b82f6','#a78bfa'];
+      const container = document.querySelector('.container');
+      for(let i=0;i<n;i++){
+        const el = document.createElement('div');
+        el.className = 'confetti-piece';
+        const left = Math.random()*100;
+        el.style.left = left + '%';
+        el.style.top = (-10 - Math.random()*20) + 'vh';
+        el.style.background = colors[Math.floor(Math.random()*colors.length)];
+        el.style.width = (8 + Math.random()*10) + 'px';
+        el.style.height = (9 + Math.random()*18) + 'px';
+        el.style.animationDuration = (2000 + Math.random()*1200) + 'ms';
+        el.style.opacity = 0.95;
+        el.style.transform = 'rotate(' + (Math.random()*360) + 'deg)';
+        container.appendChild(el);
+        // cleanup
+        setTimeout(()=> el.remove(), 3500);
+      }
+    }
+
+    // buttons
+    document.getElementById('playAgainBtn').addEventListener('click', ()=>{
+      // replace with your game's restart logic
+      location.href = "GuessNumGame.html"
+    });
+
+    document.getElementById('menuBtn').addEventListener('click', ()=>{
+      // navigate to your menu
+      alert('Go to main menu — replace with navigation');
+    });
+
+    document.getElementById('shareBtn').addEventListener('click', ()=>{
+      const score = document.getElementById('finalScore').textContent;
+      const text = `I scored ${score} points! Can you beat me?`;
+      navigator.clipboard?.writeText(text).then(()=>{
+        const old = document.getElementById('shareBtn').textContent;
+        document.getElementById('shareBtn').textContent = 'Copied!';
+        setTimeout(()=> document.getElementById('shareBtn').textContent = old,1200);
+      }).catch(()=>alert(text));
+    });
+
+    document.getElementById('saveBtn').addEventListener('click', ()=>{
+      // example local save
+      const entry = {
+        score: +document.getElementById('finalScore').textContent || 0,
+        time: document.getElementById('timePlayed').textContent || '0:00',
+        date: new Date().toISOString()
+      };
+      const list = JSON.parse(localStorage.getItem('scores')||'[]');
+      list.push(entry);
+      localStorage.setItem('scores', JSON.stringify(list));
+      alert('Saved to local leaderboard');
+    });
+
+    document.getElementById('shareSocial').addEventListener('click', ()=>{
+      const score = document.getElementById('finalScore').textContent;
+      const url = location.href;
+      if(navigator.share){
+        navigator.share({title:'My score',text:`I scored ${score} points!`,url}).catch(()=>{});
+      }else{
+        alert('Sharing not supported in this browser.');
+      }
+    });
+
+    // demo populate when loaded (remove in production)
+    document.addEventListener('DOMContentLoaded', ()=>{
+      // demo data — remove and call showGameOver from your game code
+      showGameOver({score:178, enemies:42, time:'04:13', waves:8, accuracy:67, streak:4, tip:'Use dash to avoid heavy attacks.'});
+    });
+  </script>
+</body>
+</html>

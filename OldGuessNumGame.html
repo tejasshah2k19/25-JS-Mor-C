@@ -1,0 +1,51 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        var lifeLine = 5;
+        var winningNum = parseInt(Math.random() * 100); //>0 <1 =>034  
+
+        function gamePlay() {
+
+           
+
+            let userGuess = parseInt(document.getElementById("n1").value);
+
+            if (winningNum == userGuess) {
+                alert("Winner");
+            } else {
+                lifeLine--;
+
+                if (lifeLine == 0) {
+                    location.href = "GameOver.html";
+                }
+
+                if (userGuess > winningNum) {
+                    alert("Loose : Your Number is Greater than WinningNum\nLifeLine => "+lifeLine);
+                }else{
+                    alert("Loose : Your Number is Lesser than WinningNum\nLifeLine =>"+lifeLine);
+                }
+
+            }
+
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    No. <input type="text" id="n1" /> <br><br>
+    <input type="button" value="Check" onclick="gamePlay()" />
+
+</body>
+
+</html>
