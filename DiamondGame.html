@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stack Game</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: radial-gradient(circle at center, #111 0%, #000 100%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2rem;
+      color: cyan;
+      text-shadow: 0 0 10px cyan;
+    }
+
+    .game-board {
+      display: grid;
+      grid-template-columns: repeat(4, 100px);
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      border: 2px solid cyan;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 2rem;
+      color: #fff;
+      transition: 0.3s;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    }
+
+    .box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px cyan;
+    }
+
+    .box.open {
+      pointer-events: none;
+    }
+
+    .info {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #ffcc00;
+    }
+
+    .reset-btn {
+      margin-top: 25px;
+      background: cyan;
+      color: #000;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 10px cyan;
+    }
+
+    .reset-btn:hover {
+      background: #00ffffa9;
+      box-shadow: 0 0 20px cyan;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>💎 Stack Game 💣</h1>
+  <div class="game-board" id="board"></div>
+  <div class="info" id="info">Click a box to reveal what's inside!</div>
+  <button class="reset-btn" onclick="resetGame()">Restart Game</button>
+
+  <script>
+    let totalBoxes = 12;
+    let bombCount = 4;
+    let openedDiamonds = 0;
+    let bombPositions = [];
+
+    function createBoard() {
+      const board = document.getElementById("board");
+      board.innerHTML = "";
+      bombPositions = [];
+
+      // Randomly assign bombs
+      while (bombPositions.length < bombCount) {
+        let randomIndex = Math.floor(Math.random() * totalBoxes);
+        if (!bombPositions.includes(randomIndex)) {
+          bombPositions.push(randomIndex);
+        }
+      }
+
+      // Create boxes
+      for (let i = 0; i < totalBoxes; i++) {
+        const box = document.createElement("div");
+        box.classList.add("box");
+        box.dataset.index = i;
+        box.onclick = () => revealBox(box);
+        board.appendChild(box);
+      }
+
+      document.getElementById("info").innerText = "Click a box to reveal what's inside!";
+      openedDiamonds = 0;
+    }
+
+    function revealBox(box) {
+      const index = parseInt(box.dataset.index);
+
+      if (bombPositions.includes(index)) {
+        box.innerHTML = "💣";
+        box.style.background = "rgba(255, 0, 0, 0.3)";
+        box.classList.add("open");
+        document.getElementById("info").innerText = "💥 You hit a bomb!";
+        setTimeout(() => location.href = "GameOver.html", 1000);
+      } else {
+        box.innerHTML = "💎";
+        box.style.background = "rgba(0, 255, 255, 0.2)";
+        box.classList.add("open");
+        openedDiamonds++;
+
+        if (openedDiamonds === totalBoxes - bombCount) {
+          document.getElementById("info").innerText = "🎉 You found all diamonds!";
+          setTimeout(() => location.href = "GameWin.html", 1000);
+        }
+      }
+    }
+
+    function resetGame() {
+      createBoard();
+    }
+
+    createBoard();
+  </script>
+
+</body>
+
+</html>
