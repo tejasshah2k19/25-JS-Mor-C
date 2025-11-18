@@ -444,6 +444,24 @@ url ->
 <meta > 
 
 
+--------------------------------------------------------
+storage 
+        1) local storage 
+        2) session storage 
+        3) cookie 
+
+
+ local storage 
+        -> stores the information inside browser 
+        -> it will store information in key value format 
+
+        setItem()
+        getItem()
+        clear() 
+
+
+
+ --------------------------------------------------------
 
 
 
